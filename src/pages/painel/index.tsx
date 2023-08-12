@@ -5,7 +5,7 @@ import Head from 'next/head';
 import styles from './home.module.scss';
 
 export default function Painel() {
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState<any>([]);
 
     useEffect(() => {
         fetchTasks();
@@ -20,8 +20,8 @@ export default function Painel() {
         }
     }
 
-    function handleComplete(taskId) {
-        const updatedTasks = tasks.map(task => {
+    function handleComplete(taskId:any) {
+        const updatedTasks = tasks.map((task:any) => {
             if (task.id === taskId) {
                 return { ...task, completed: true };
             }
@@ -38,7 +38,7 @@ export default function Painel() {
             <main>
                 <h1>Tarefas:</h1>
                 <ul>
-                    {tasks.map(task => (
+                    {tasks.map((task:any) => (
                         <li key={task.id}>
                             <span className={task.completed? styles.completed : ''}>
                                 {task.title}
